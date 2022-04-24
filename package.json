@@ -28,7 +28,9 @@
     "cy-openapi": "cy-openapi",
     "cy-openapi:test": "cy-openapi samples/oas-v3.0.1.yml -o cypress/integration --baseURL http://localhost:3000",
     "swagger2openapi": "swagger2openapi",
-    "oas-validate": "oasvalidate"
+    "oas-validate": "oasvalidate",
+    "postman-collection-gen": "postman-collection-gen",
+    "swagger-to-sample-code":"node ./scripts/swagger-to-sample-code.js"
   },
   "author": "Yousaf Nabi",
   "license": "ISC",
@@ -47,9 +49,11 @@
     "node-persist": "^3.1.0",
     "oas-validator": "^5.0.8",
     "pmpact": "^0.3.14",
+    "postman-collection-gen": "1.0.1",
     "postman-to-openapi": "^2.2.1",
     "postman2openapi": "^1.0.0-beta",
     "swagger-coverage-postman": "^1.1.0",
+    "swagger-to-sample-code": "^1.0.1",
     "swagger2openapi": "^7.0.8"
   },
   "devDependencies": {

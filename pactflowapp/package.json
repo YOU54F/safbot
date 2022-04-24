@@ -1,0 +1,31 @@
+{
+  "name": "pactflow",
+  "version": "0.0.1",
+  "description":"Pactflow - Your Broker in an app",
+  "license": "MIT",
+  "author": {
+    "name":"Pactflow",
+    "url": "https://pactflow.io"
+  },
+  "build": {
+    "appId": "com.pactflow.app",
+    "mac": {
+      "category": "com.pactflow.app"
+    }
+  },
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "electron-builder": "^23.0.8",
+    "electron-webpack": "^2.8.2",
+    "webpack": "~4.42.1"
+  }
+}
