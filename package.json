@@ -31,12 +31,21 @@
     "@apideck/postman-to-k6": "^1.8.3",
     "@matt.ball/postman-cli": "^0.1.2",
     "@pactflow/swagger-mock-validator": "^11.0.0",
+    "amazon-cognito-identity-js": "^5.2.8",
     "cli-diagram": "^0.3.0",
+    "cli-ux": "6",
+    "cross-fetch": "^3.1.5",
     "json-schema-ref-parser": "^9.0.9",
     "newman-wrapper": "^1.0.10",
+    "node-persist": "^3.1.0",
     "pmpact": "^0.3.14",
     "postman-to-openapi": "^2.2.1",
     "postman2openapi": "^1.0.0-beta",
     "swagger-coverage-postman": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   }
 }
