@@ -13,24 +13,26 @@ class cognitocurl extends Command {
   static flags = {
     version: Flags.version({ char: 'v' }),
     help: Flags.help(),
-    userpool: Flags.string({ description: 'Congito User Pool ID' }),
+    userpool: Flags.string({
+      description: 'Congito User Pool ID',
+      default: 'ap-southeast-2_x0L1olP0D'
+    }),
     cognitoclient: Flags.string({ description: 'Cognito Client App ID' }),
     reset: Flags.boolean({ description: 'Reset Cognito credentials' }),
     storage: Flags.string({
       description: "Persistent storage catalogue. Defaults to '/var/tmp'. "
     }),
     header: Flags.string({
-      description:
-        "Name HTTP header with authorization token. Defaults to 'Authorization'"
+      description: "Name HTTP header with cookie token. Defaults to 'cookie'"
     }),
     run: Flags.string({
-      description: 'Command to be runned and  sign with -H Autorization token'
+      description: 'Curl ommand to be run and sign with -H cookie token'
     }),
     token: Flags.boolean({
       description: 'Token to stdout instead of running a curl command'
     }),
-    username: Flags.string({ description: 'Congito User name' }),
-    password: Flags.string({ description: 'Congito User password' })
+    username: Flags.string({ description: 'Cognito User name' }),
+    password: Flags.string({ description: 'Cognito User password' })
   };
 
   static strict = false;
@@ -47,34 +49,27 @@ class cognitocurl extends Command {
       Password: flags.password
     };
 
-    const { run: command, header = 'cookie', token } = flags;
+    const { run: command, header, token } = flags;
 
-    if (!command)
-      console.log('please pass a command to run with --run "command"'),
-        process.exit(1);
     try {
       const cognitoToken: {
         accessToken: string;
         idToken: string;
         refreshToken: string;
+        cookie: string;
       } = await getTokenFromCLI(cognitoSetup);
       if (token) {
-        this.log(
-          'if we got a token from the user just exit? no valid check. hmmm...',
-          token
-        );
+        // user requested to see stored tokens instead of running curl command
+        this.log('your token is', cognitoToken);
         process.exit(0);
       } else {
-        this.log(
-          'if a token wasnt passed again. whut...',
-          header,
-          cognitoToken,
-          command
-        );
-        const cookie =
-          header +
-          `: id_token=${cognitoToken.idToken};access_token=${cognitoToken.accessToken};refresh_token=${cognitoToken.refreshToken};`;
-        const signedCommand = `${command} -H '${cookie}: ${cognitoToken}' -s`;
+        this.log('Running curl command', command);
+        if (!command)
+          console.log('please pass a command to run with --run "command"'),
+            process.exit(1);
+        const signedCommand = `${command} -H '${header}: ${
+          header === 'cookie' ? cognitoToken.cookie : cognitoToken.idToken
+        }' -s`;
         exec(signedCommand, (err, stdout, stderr) => {
           this.log(stdout, stderr);
           process.exit();
