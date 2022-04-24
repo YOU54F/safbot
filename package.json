@@ -25,7 +25,8 @@
     "postman-to-openapi": "p2o",
     "pact-login": "ts-node cognitocli/runner.ts  --cognitoclient 7t2s56arpg424kh7ou60apca8m --userpool ap-southeast-2_x0L1olP0D --run 'curl https://saf.pactflow.io/settings/tokens' --header cookie",
     "pact-diagram": "node pact-diagram.js",
-    "cypress-swagger": "cygger"
+    "cy-openapi": "cy-openapi",
+    "cy-openapi:test": "cy-openapi samples/oas-v3.0.1.yml -o cypress/integration --baseURL http://localhost:3000"
   },
   "author": "Yousaf Nabi",
   "license": "ISC",
@@ -38,7 +39,7 @@
     "cli-diagram": "^0.3.0",
     "cli-ux": "6",
     "cross-fetch": "^3.1.5",
-    "cygger": "^0.0.4",
+    "cy-openapi": "^0.0.7",
     "json-schema-ref-parser": "^9.0.9",
     "newman-wrapper": "^1.0.10",
     "node-persist": "^3.1.0",
