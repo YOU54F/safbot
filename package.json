@@ -41,10 +41,13 @@
     "pat": "pat",
     "postbox:split": "postbox-split",
     "postbox-merge": "postbox-merge",
+    "redoc-cli": "redoc-cli",
     "ufonaut": "ufonaut",
     "ufonaut:cli": "ufonaut cli",
     "postman-to-swagger": "postman-to-swagger",
-    "postman-coverage": "postman-coverage"
+    "postman-coverage": "postman-coverage",
+    "wsdl-to-ts":"wsdl-to-ts",
+    "wsdl-to-ts:test":"wsdl-to-ts \"https://www.w3schools.com/xml/tempconvert.asmx?WSDL\""
   },
   "author": "Yousaf Nabi",
   "license": "ISC",
@@ -53,6 +56,7 @@
     "@apideck/postman-to-k6": "^1.8.3",
     "@b-pagis/ufonaut": "^1.0.3",
     "@blueworld/postbox": "^1.2.2",
+    "@jc21/cypress-swagger-validation": "^0.1.0",
     "@matt.ball/postman-cli": "^0.1.2",
     "@pactflow/swagger-mock-validator": "^11.0.0",
     "@stoplight/prism-cli": "^4.9.1",
@@ -80,9 +84,11 @@
     "postman-to-swagger": "^0.0.9",
     "postman2md": "^0.2.4",
     "postman2openapi": "^1.0.0-beta",
+    "redoc-cli": "^0.13.10",
     "swagger-coverage-postman": "^1.1.0",
     "swagger-to-sample-code": "^1.0.1",
-    "swagger2openapi": "^7.0.8"
+    "swagger2openapi": "^7.0.8",
+    "wsdl-to-ts": "^0.2.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
