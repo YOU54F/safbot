@@ -1,0 +1,42 @@
+{
+  "name": "saftest",
+  "version": "1.0.0",
+  "description": "collection of awesome tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "yarn link saftest",
+    "start": "yarn -px saftest",
+    "portman": "portman",
+    "swagger-pact": "swagger-mock-validator",
+    "postman-cli": "postman",
+    "postman-pact": "pmpact",
+    "newman-slack": "./newman-to-slack.sh",
+    "postman-k6": "postman-to-k6",
+    "coverage-swagger-postman": "node scripts/swaggerPostmanCoverage.js",
+    "newwman-wrapper": "node scripts/newman-env-modifier.js",
+    "openapi2postmanv2": "openapi2postmanv2",
+    "handlebars": "handlebars",
+    "postman-collection-transformer": "postman-collection-transformer",
+    "newman": "newman",
+    "openapi-format": "openapi-format",
+    "postman2openapi": "node ./scripts/postman2oas.js",
+    "newman-wrapper": "newman-wrapper \"./samples/postman-env.json\" \"host\" \"http://localhost:3002\"",
+    "postman-to-openapi": "p2o"
+  },
+  "author": "Yousaf Nabi",
+  "license": "ISC",
+  "dependencies": {
+    "@apideck/portman": "^1.16.1",
+    "@apideck/postman-to-k6": "^1.8.3",
+    "@matt.ball/postman-cli": "^0.1.2",
+    "@pactflow/swagger-mock-validator": "^11.0.0",
+    "cli-diagram": "^0.3.0",
+    "json-schema-ref-parser": "^9.0.9",
+    "newman-wrapper": "^1.0.10",
+    "pmpact": "^0.3.14",
+    "postman-to-openapi": "^2.2.1",
+    "postman2openapi": "^1.0.0-beta",
+    "swagger-coverage-postman": "^1.1.0"
+  }
+}
