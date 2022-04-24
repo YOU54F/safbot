@@ -3,7 +3,7 @@ const refParser = require("json-schema-ref-parser");
 const path = require('path')
 
 const oas = "../samples/oas-v3.0.1.yml"
-const postmanCollection = "../samples/postman-collection.json"
+const postmanCollection = "../samples/test.postman_collection.json"
 
 
 const main = async (oas,postmanCollection)=>{

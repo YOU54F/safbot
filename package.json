@@ -39,6 +39,7 @@
     "@apideck/postman-to-k6": "^1.8.3",
     "@matt.ball/postman-cli": "^0.1.2",
     "@pactflow/swagger-mock-validator": "^11.0.0",
+    "@stoplight/prism-cli": "^4.9.1",
     "amazon-cognito-identity-js": "^5.2.8",
     "cli-diagram": "^0.3.0",
     "cli-ux": "6",
@@ -50,6 +51,7 @@
     "oas-validator": "^5.0.8",
     "pmpact": "^0.3.14",
     "postman-collection-gen": "1.0.1",
+    "postman-runner": "^0.1.2",
     "postman-to-openapi": "^2.2.1",
     "postman2openapi": "^1.0.0-beta",
     "swagger-coverage-postman": "^1.1.0",
@@ -58,6 +60,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
+    "postman-collection-transformer": "^4.1.6",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
