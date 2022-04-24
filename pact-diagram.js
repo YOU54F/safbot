@@ -18,7 +18,7 @@ Generating a Pact contract
 Publishes to Pactflow`
     )
     .arrow(['-->:pact'])
-    .box('Pactflow Broker\n\n\n\n\nwe use\ncan-i-deploy to\ngate deployments')
+    .box('Pactflow Broker\n(Consumer Driven)\n\n\n\nwe use\ncan-i-deploy to\ngate deployments')
     .arrow(['-->:webhook', '<--:results']).box(`Provider 
 ${providerunittest}
 Reads the Pact Contract
@@ -47,7 +47,7 @@ Convert your mocks into a Pact contract
 Publish to Pactflow`
       )
       .arrow(['-->:pact'])
-      .box('Pactflow Broker\n\nwe perform cross \ncontract verification\nis performed to ensure\nfield level compliance\n\nwe use can-i-deploy\nto gate deployments')
+      .box('Pactflow Broker\n(Bi-Directional)\n\nwe perform cross \ncontract verification\nis performed to ensure\nfield level compliance\n\nwe use can-i-deploy\nto gate deployments')
       .arrow(['<--:provider contract']).box(`Provider 
 ${providerunittest}
 Design First or Provider First workflows

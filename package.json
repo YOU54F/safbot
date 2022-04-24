@@ -22,7 +22,10 @@
     "openapi-format": "openapi-format",
     "postman2openapi": "node ./scripts/postman2oas.js",
     "newman-wrapper": "newman-wrapper \"./samples/postman-env.json\" \"host\" \"http://localhost:3002\"",
-    "postman-to-openapi": "p2o"
+    "postman-to-openapi": "p2o",
+    "pact-login": "ts-node cognitocli/runner.ts  --cognitoclient 7t2s56arpg424kh7ou60apca8m --userpool ap-southeast-2_x0L1olP0D --run 'curl https://saf.pactflow.io/settings/tokens' --header cookie",
+    "pact-diagram": "node pact-diagram.js",
+    "cypress-swagger": "cygger"
   },
   "author": "Yousaf Nabi",
   "license": "ISC",
@@ -35,6 +38,7 @@
     "cli-diagram": "^0.3.0",
     "cli-ux": "6",
     "cross-fetch": "^3.1.5",
+    "cygger": "^0.0.4",
     "json-schema-ref-parser": "^9.0.9",
     "newman-wrapper": "^1.0.10",
     "node-persist": "^3.1.0",
