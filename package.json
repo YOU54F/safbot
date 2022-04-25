@@ -1,10 +1,11 @@
 {
   "name": "safbot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "various cli tools I find useful, all rolled up in one",
   "main": "index.js",
   "bin":{
-    "saf":"./dist/shell.js"
+    "saf":"./dist/shell.js",
+    "safbot":"./dist/shell.js"
   },
   "scripts": {
     "prebuild": "rimraf ./node_modules/newman-collection/index.ts",
