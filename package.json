@@ -4,12 +4,12 @@
   "description": "collection of awesome tools",
   "main": "index.js",
   "scripts": {
-    "prebuild": "rm node_modules/newman-collection/index.ts",
+    "prebuild": "rimraf ./node_modules/newman-collection/index.ts",
     "build": "npm run prebuild && tsc --skipLibCheck",
     "test": "echo \"Error: no test specified\" && exit 1",
     "link": "yarn link saftest",
     "start": "yarn -px saftest",
-    "commands":"ts-node ./src/shell.ts",
+    "commands": "ts-node ./src/shell.ts",
     "newman": "newman",
     "portman": "portman",
     "newman-slack": "./scripts/newman-to-slack.sh",
@@ -88,6 +88,7 @@
   "devDependencies": {
     "@types/node": "^17.0.25",
     "@types/shelljs": "^0.8.11",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
