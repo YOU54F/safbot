@@ -2532,12 +2532,12 @@ commander@6.2.1:
   resolved "https://registry.npmjs.org/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
-commander@7.2.0, commander@^7.0.0, commander@^7.1.0:
+commander@7.2.0, commander@^7.0.0, commander@^7.1.0, commander@^7.2.0:
   version "7.2.0"
   resolved "https://registry.npmjs.org/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-commander@8.3.0, commander@^8.3.0:
+commander@8.3.0, commander@^8.2.0, commander@^8.3.0:
   version "8.3.0"
   resolved "https://registry.npmjs.org/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
@@ -5288,6 +5288,18 @@ json-schema-compare@^0.2.2:
   dependencies:
     lodash "^4.17.4"
 
+json-schema-diff@^0.17.1:
+  version "0.17.1"
+  resolved "https://registry.npmjs.org/json-schema-diff/-/json-schema-diff-0.17.1.tgz#5e0992f12aa86dbec0528b9104c7d02858ce5092"
+  integrity sha512-bBflcH+NRM/bKbw2G0WIh0ltCZb3PCyruTdopx3hZaXSHKM1+F7ILfDzyl9CxbLAS40/6EhkBYQUMFBefhBkgg==
+  dependencies:
+    ajv "^8.6.0"
+    commander "^7.2.0"
+    json-schema-ref-parser "^9.0.6"
+    json-schema-spec-types "^0.1.2"
+    lodash "^4.17.20"
+    verror "^1.10.0"
+
 json-schema-faker@0.5.0-rcv.40:
   version "0.5.0-rcv.40"
   resolved "https://registry.npmjs.org/json-schema-faker/-/json-schema-faker-0.5.0-rcv.40.tgz#71d4f770368d6832bb66b044a504a9ecc2604651"
@@ -5320,6 +5332,11 @@ json-schema-ref-parser@^9.0.6, json-schema-ref-parser@^9.0.9:
   integrity sha512-qcP2lmGy+JUoQJ4DOQeLaZDqH9qSkeGCK3suKWxJXS82dg728Mn3j97azDMaOUmJAN4uCq91LdPx4K7E8F1a7Q==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "9.0.9"
+
+json-schema-spec-types@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/json-schema-spec-types/-/json-schema-spec-types-0.1.2.tgz#c4dac1c8b70c99f19b24afedb210e1dfc48665e2"
+  integrity sha512-MDl8fA8ONckmQOm2+eXKJaFJNvxk7eGin+XFofNjS3q3PRKSoEvgMVb0ehOpCAYkUiLoMiqdU7obV7AmzAmyLw==
 
 json-schema-traverse@^0.4.1:
   version "0.4.1"
@@ -5419,6 +5436,11 @@ jsonpath@^1.0.2:
     esprima "1.2.2"
     static-eval "2.0.2"
     underscore "1.12.1"
+
+jsonpointer@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/jsonpointer/-/jsonpointer-4.1.0.tgz#501fb89986a2389765ba09e6053299ceb4f2c2cc"
+  integrity sha512-CXcRvMyTlnR53xMcKnuMzfCA5i/nfblTnnr74CZb6C4vG39eu6w51t7nKmU5MfLfbTgGItliNyjO/ciNPDqClg==
 
 jsonpointer@^5.0.0:
   version "5.0.0"
@@ -6577,6 +6599,21 @@ ono@^4.0.11:
   dependencies:
     format-util "^1.0.3"
 
+openapi-diff@^0.23.5:
+  version "0.23.5"
+  resolved "https://registry.npmjs.org/openapi-diff/-/openapi-diff-0.23.5.tgz#a4fa4505bbe5686a9a9040e7ad799f3390909b27"
+  integrity sha512-dXK5NhB9nY33X4S4OLHIbT/yJUwD6sAfjotFvGjXR5x76Vi6Jcq0adNnPg0GmB9Mtc4CY0oH3ut5lHVbeKD18w==
+  dependencies:
+    commander "^8.2.0"
+    js-yaml "^4.0.0"
+    json-schema-diff "^0.17.1"
+    jsonpointer "^4.1.0"
+    lodash "^4.17.20"
+    openapi3-ts "^2.0.0"
+    request "^2.88.2"
+    swagger-parser "^10.0.2"
+    verror "^1.10.0"
+
 openapi-format@^1.10.0:
   version "1.10.0"
   resolved "https://registry.npmjs.org/openapi-format/-/openapi-format-1.10.0.tgz#77b3872713d5cac3fa0dc91315aa19368059a62f"
@@ -6638,7 +6675,7 @@ openapi-types@^7.0.1:
   resolved "https://registry.npmjs.org/openapi-types/-/openapi-types-7.2.3.tgz#83829911a3410a022f0e0cf2b0b2e67232ccf96e"
   integrity sha512-olbaNxz12R27+mTyJ/ZAFEfUruauHH27AkeQHDHRq5AF0LdNkK1SSV7EourXQDK+4aX7dv2HtyirAGK06WMAsA==
 
-openapi3-ts@^2.0.2:
+openapi3-ts@^2.0.0, openapi3-ts@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/openapi3-ts/-/openapi3-ts-2.0.2.tgz#a200dd838bf24c9086c8eedcfeb380b7eb31e82a"
   integrity sha512-TxhYBMoqx9frXyOgnRHufjQfPXomTIHYKhSKJ6jHfj13kS8OEIhvmE8CTuQyKtjjWttAjX5DPxM1vmalEpo8Qw==

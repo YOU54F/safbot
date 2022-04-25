@@ -42,6 +42,7 @@ displayHelp('postbox-split');
 displayHelp('postbox-merge');
 displayHelp('redoc-cli');
 displayHelp('wsdl-to-ts');
+displayHelp('openapi-diff');
 
 shell.echo('*** Examples of Operation ***', '\n');
 
@@ -52,3 +53,4 @@ displayExample('newman-collection', 'yarn run newman-collection');
 displayExample('swagger-to-sample-code', 'yarn run swagger-to-sample-code');
 // displayExample('pact-login',"yarn run pact-login")
 displayExample('pact-diagram', 'yarn run pact-diagram');
+displayExample('pact-json-schema', 'yarn run pact-json-schema');

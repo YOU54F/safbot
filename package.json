@@ -45,7 +45,9 @@
     "postbox-merge": "postbox-merge",
     "redoc-cli": "redoc-cli",
     "wsdl-to-ts": "wsdl-to-ts",
-    "wsdl-to-ts:test": "wsdl-to-ts \"https://www.w3schools.com/xml/tempconvert.asmx?WSDL\""
+    "wsdl-to-ts:test": "wsdl-to-ts \"https://www.w3schools.com/xml/tempconvert.asmx?WSDL\"",
+    "openapi-diff":"openapi-diff",
+    "pact-json-schema": "ts-node ./src/pactSchemas.ts"
   },
   "author": "Yousaf Nabi",
   "license": "ISC",
@@ -70,6 +72,7 @@
     "newman-wrapper": "^1.0.10",
     "node-persist": "^3.1.0",
     "oas-validator": "^5.0.8",
+    "openapi-diff": "^0.23.5",
     "openapi-to-postmanv2": "^3.1.0",
     "pact-json-schema": "^0.2.0",
     "pat-cli": "^0.2.3",
