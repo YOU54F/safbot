@@ -2,12 +2,12 @@ const coverage = require("swagger-coverage-postman");
 const refParser = require("json-schema-ref-parser");
 const path = require('path')
 
-const oas = "../samples/oas-v3.0.1.yml"
-const postmanCollection = "../samples/test.postman_collection.json"
 
 
-const main = async (oas,postmanCollection)=>{
-
+const main = async ()=>{
+    const oas = "../samples/oas-v3.0.1.yml"
+    const postmanCollection = "../samples/test.postman_collection.json"
+    
     // Load swagger file
 const apiFile = path.join(__dirname, oas);
 const api = await refParser.dereference(apiFile);
@@ -22,4 +22,4 @@ const coverageSummary = await coverage.summary(api, integrationTests);
 console.log(coverageSummary);
 // { paths: 1, methods: 0.86, parameters: 0.15 } 
 }
-main(oas,postmanCollection)
+main()
