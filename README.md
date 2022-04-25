@@ -35,3 +35,8 @@
   - `pact-diagram`
   - `postbox-split`
   - `postbox-merge`
+
+
+temp removed, typescript file shouldnt be in there
+
+- `    "newman-collection": "ts-node ./src/newmanCollection.ts",` build errors
