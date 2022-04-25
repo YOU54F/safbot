@@ -6199,10 +6199,10 @@ netmask@^2.0.1:
   resolved "https://registry.npmjs.org/netmask/-/netmask-2.0.2.tgz#8b01a07644065d536383835823bc52004ebac5e7"
   integrity sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==
 
-newman-collection@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/newman-collection/-/newman-collection-1.5.1.tgz#308c624e6450e264f507c17ccd8e0db1d425c235"
-  integrity sha512-w9f6Si6bNSa2SHHiwMvBwoii0B8t40lVxhYEuvZpzjL5wdzr5nwyNaeb0DjOGopzcqtjbOqpgmuW40Mh4GDsVA==
+newman-collection@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/newman-collection/-/newman-collection-1.5.0.tgz#3a2193a60414d80d84e2ea40a5fbcb1bd223a2fb"
+  integrity sha512-jsZsyniWJrW1zCwtpa5QuerGStlYHPsLP4wOEeFm+MS00jDjLbcedbrMmtx5H+kp67K3yOiNcjOuKiy3l4E1yQ==
   dependencies:
     "@types/node" "^13.7.1"
     postman-collection "^3.5.5"

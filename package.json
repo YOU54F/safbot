@@ -4,7 +4,8 @@
   "description": "collection of awesome tools",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --skipLibCheck",
+    "prebuild": "rm node_modules/newman-collection/index.ts",
+    "build": "npm run prebuild && tsc --skipLibCheck",
     "test": "echo \"Error: no test specified\" && exit 1",
     "link": "yarn link saftest",
     "start": "yarn -px saftest",

@@ -13,7 +13,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: node ./shell.js
+      - run: yarn install
+      - run: yarn build
+      - run: node ./dist/shell.js
 
   build-and-test-ubuntu:
     runs-on: ubuntu-latest
@@ -23,7 +25,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: node ./shell.js
+      - run: yarn install
+      - run: yarn build
+      - run: node ./dist/shell.js
 
   build-and-test-windows:
     runs-on: windows-latest
@@ -32,4 +36,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: node ./shell.js
+      - run: yarn install
+      - run: yarn build
+      - run: node ./dist/shell.js
