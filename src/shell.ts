@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import shell from 'shelljs';
 
 const displayHelp = (programName: string) => {
@@ -13,6 +14,10 @@ const displayExample = (programName: string, command: string) => {
   shell.echo('__________', '\n');
   shell.exec(command);
 };
+
+shell.echo('*** Heath Robinson ***', '\n');
+shell.echo('*** A collection of CLI tools ***', '\n');
+
 
 shell.echo('*** TOOLS ***', '\n');
 // Also serves as documentation

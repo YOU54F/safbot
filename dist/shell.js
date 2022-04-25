@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
@@ -16,6 +17,8 @@ const displayExample = (programName, command) => {
     shelljs_1.default.echo('__________', '\n');
     shelljs_1.default.exec(command);
 };
+shelljs_1.default.echo('*** Heath Robinson ***', '\n');
+shelljs_1.default.echo('*** A collection of CLI tools ***', '\n');
 shelljs_1.default.echo('*** TOOLS ***', '\n');
 // Also serves as documentation
 displayHelp('newman');
@@ -44,6 +47,7 @@ displayHelp('postbox-split');
 displayHelp('postbox-merge');
 displayHelp('redoc-cli');
 displayHelp('wsdl-to-ts');
+displayHelp('openapi-diff');
 shelljs_1.default.echo('*** Examples of Operation ***', '\n');
 displayExample('newman-slack', 'yarn run newman-slack');
 displayExample('newman-wrapper', 'yarn run newman-wrapper');
@@ -52,3 +56,4 @@ displayExample('newman-collection', 'yarn run newman-collection');
 displayExample('swagger-to-sample-code', 'yarn run swagger-to-sample-code');
 // displayExample('pact-login',"yarn run pact-login")
 displayExample('pact-diagram', 'yarn run pact-diagram');
+displayExample('pact-json-schema', 'yarn run pact-json-schema');

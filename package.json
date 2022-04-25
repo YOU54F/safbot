@@ -1,8 +1,11 @@
 {
-  "name": "heathrobinson",
-  "version": "1.0.0",
-  "description": "collection of awesome tools",
+  "name": "safbot",
+  "version": "0.0.1",
+  "description": "various cli tools I find useful, all rolled up in one",
   "main": "index.js",
+  "bin":{
+    "saf":"./dist/shell.js"
+  },
   "scripts": {
     "prebuild": "rimraf ./node_modules/newman-collection/index.ts",
     "build": "npm run prebuild && tsc --skipLibCheck",
