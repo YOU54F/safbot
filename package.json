@@ -1,6 +1,6 @@
 {
   "name": "safbot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "various cli tools I find useful, all rolled up in one",
   "main": "index.js",
   "bin": {
@@ -59,8 +59,6 @@
     "@apideck/portman": "^1.16.1",
     "@apideck/postman-to-k6": "^1.8.3",
     "@blueworld/postbox": "^1.2.2",
-    "@boost/args": "^3.0.1",
-    "@boost/cli": "^3.0.3",
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "@matt.ball/postman-cli": "^0.1.2",
     "@pactflow/swagger-mock-validator": "^11.0.0",
@@ -89,7 +87,6 @@
     "postman-to-openapi": "^2.2.1",
     "postman2md": "^0.2.4",
     "postman2openapi": "^1.0.0-beta",
-    "react": "^18.0.0",
     "redoc-cli": "^0.13.10",
     "shelljs": "^0.8.5",
     "swagger-to-sample-code": "^1.0.1",
