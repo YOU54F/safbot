@@ -2,3 +2,5 @@ src
 old.json
 *.txt
 tsconfig.json
+.github
+*.log
