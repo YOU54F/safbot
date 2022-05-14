@@ -1,6 +1,6 @@
 {
   "name": "safbot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "various cli tools I find useful, all rolled up in one",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,7 @@
     "safbot": "./dist/shell.js"
   },
   "scripts": {
-    "prebuild": "rimraf ./node_modules/newman-collection/index.ts",
+    "prebuild": "rimraf dist",
     "build": "npm run prebuild && tsc --skipLibCheck",
     "test": "echo \"Error: no test specified\" && exit 1",
     "link": "yarn link saftest",
@@ -69,7 +69,6 @@
     "cross-fetch": "^3.1.5",
     "curlx": "^0.0.12",
     "cy-openapi": "^0.0.7",
-    "ink": "^3.2.0",
     "json-schema-ref-parser": "^9.0.9",
     "newman-collection": "^1.5.1",
     "newman-reporter-htmlextra": "^1.22.8",

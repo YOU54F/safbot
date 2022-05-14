@@ -25,11 +25,6 @@ const runProgram = (argv) => {
             break;
         case "curl:pactflow":
             console.log("access your broker");
-            // shell.exec(
-            //   `$(npm bin)/ts-node ./src/cognitocli/runner.ts   --header cookie --cognitoclient 7t2s56arpg424kh7ou60apca8m --userpool ap-southeast-2_x0L1olP0D --run 'curl ${argv.join(
-            //     " "
-            //   )}'`
-            // );
             shelljs_1.default.exec(`node ./dist/cognitocli/runner.js   --header cookie --cognitoclient 7t2s56arpg424kh7ou60apca8m --userpool ap-southeast-2_x0L1olP0D --run 'curl ${argv.join(" ")}'`);
             break;
         default:

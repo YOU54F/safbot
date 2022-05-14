@@ -4,3 +4,4 @@ old.json
 tsconfig.json
 .github
 *.log
+cypress
