@@ -15,17 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTokenFromCLI = void 0;
 const amazon_cognito_identity_js_1 = require("amazon-cognito-identity-js");
 const cli_ux_1 = __importDefault(require("cli-ux"));
-const storage = require('node-persist');
+const storage = require("node-persist");
 const TokenStorage = {
     get: (poolData) => __awaiter(void 0, void 0, void 0, function* () {
         return yield storage.getItem(`${poolData.UserPoolId}.${poolData.ClientId}`);
     }),
     add: (poolData, tokens) => __awaiter(void 0, void 0, void 0, function* () {
         return yield storage.setItem(`${poolData.UserPoolId}.${poolData.ClientId}`, JSON.stringify(tokens));
-    })
+    }),
 };
 const HandleNewPasswordRequired = (cognitoUser, username, poolData) => __awaiter(void 0, void 0, void 0, function* () {
-    const newPassword = yield cli_ux_1.default.prompt('Password change required.\nNew Password', { type: 'hide' });
+    const newPassword = yield cli_ux_1.default.prompt("Password change required.\nNew Password", { type: "hide" });
     return new Promise((resolve, reject) => {
         cognitoUser.completeNewPasswordChallenge(newPassword, {}, {
             onSuccess(result) {
@@ -40,33 +40,33 @@ const HandleNewPasswordRequired = (cognitoUser, username, poolData) => __awaiter
                     refreshToken,
                     accessToken,
                     username,
-                    cookie
+                    cookie,
                 }).then(() => {
                     resolve({ accessToken, idToken, refreshToken, cookie });
                 });
             },
             onFailure(err) {
                 reject(err);
-            }
+            },
         });
     });
 });
 const GetTokenFromInput = (poolData) => __awaiter(void 0, void 0, void 0, function* () {
-    const username = poolData['Username']
-        ? poolData['Username']
-        : yield cli_ux_1.default.prompt('Username');
-    const password = poolData['Password']
-        ? poolData['Password']
-        : yield cli_ux_1.default.prompt('Password', { type: 'hide' });
+    const username = poolData["Username"]
+        ? poolData["Username"]
+        : yield cli_ux_1.default.prompt("Username");
+    const password = poolData["Password"]
+        ? poolData["Password"]
+        : yield cli_ux_1.default.prompt("Password", { type: "hide" });
     const authenticationData = {
         Username: username,
-        Password: password
+        Password: password,
     };
     const authenticationDetails = new amazon_cognito_identity_js_1.AuthenticationDetails(authenticationData);
     const userPool = new amazon_cognito_identity_js_1.CognitoUserPool(poolData);
     const userData = {
         Username: username,
-        Pool: userPool
+        Pool: userPool,
     };
     const cognitoUser = new amazon_cognito_identity_js_1.CognitoUser(userData);
     return new Promise((resolve, reject) => {
@@ -83,7 +83,7 @@ const GetTokenFromInput = (poolData) => __awaiter(void 0, void 0, void 0, functi
                     refreshToken,
                     accessToken,
                     username,
-                    cookie
+                    cookie,
                 }).then(() => {
                     resolve({ idToken, accessToken, refreshToken, cookie });
                 });
@@ -95,13 +95,13 @@ const GetTokenFromInput = (poolData) => __awaiter(void 0, void 0, void 0, functi
                 HandleNewPasswordRequired(cognitoUser, username, poolData)
                     .then(resolve)
                     .catch(reject);
-            }
+            },
         });
     });
 });
 const RefreshToken = (token) => ({
     token,
-    getToken: () => token
+    getToken: () => token,
 });
 const GetTokenFromPersistedCredentials = (data, poolData) => new Promise((resolve, reject) => {
     const tokens = JSON.parse(data);
@@ -109,13 +109,13 @@ const GetTokenFromPersistedCredentials = (data, poolData) => new Promise((resolv
     const userPool = new amazon_cognito_identity_js_1.CognitoUserPool(poolData);
     const userData = {
         Username: tokens.username,
-        Pool: userPool
+        Pool: userPool,
     };
     const cognitoUser = new amazon_cognito_identity_js_1.CognitoUser(userData);
     if (now > tokens.idTokenTTI) {
         cognitoUser.refreshSession(RefreshToken(tokens.refreshToken), (err, result) => {
             if (err) {
-                reject('Error');
+                reject("Error");
             }
             else {
                 const idToken = result.idToken.jwtToken;
@@ -129,7 +129,7 @@ const GetTokenFromPersistedCredentials = (data, poolData) => new Promise((resolv
                     refreshToken,
                     accessToken,
                     username: tokens.username,
-                    cookie
+                    cookie,
                 }).then(() => {
                     resolve({ idToken, accessToken, refreshToken, cookie });
                 });
@@ -142,9 +142,9 @@ const GetTokenFromPersistedCredentials = (data, poolData) => new Promise((resolv
 });
 const getTokenFromCLI = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const poolData = data;
-    yield storage.init({ dir: data.storage ? data.storage : '/var/tmp/we' });
-    const scoobySnack = yield TokenStorage.get(data);
-    console.log('is there a cookie in me jar?', !!scoobySnack === true);
+    yield storage.init({ dir: data.storage ? data.storage : "/var/tmp/we" });
+    // const scoobySnack = await TokenStorage.get(data);
+    // console.log('is there a cookie in me jar?', !!scoobySnack === true);
     return !data.reset
         ? yield TokenStorage.get(data)
             .then((data) => GetTokenFromPersistedCredentials(data, poolData))

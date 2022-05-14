@@ -6,6 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const shelljs_1 = __importDefault(require("shelljs"));
 const argv = process.argv.slice(2);
+const path = require("path");
 const runProgram = (argv) => {
     switch (argv[0]) {
         case "list:examples":
@@ -23,9 +24,32 @@ const runProgram = (argv) => {
             shelljs_1.default.echo("__________", "\n");
             displayAllCommands();
             break;
-        case "curl:pactflow":
-            console.log("access your broker");
-            shelljs_1.default.exec(`node ./dist/cognitocli/runner.js   --header cookie --cognitoclient 7t2s56arpg424kh7ou60apca8m --userpool ap-southeast-2_x0L1olP0D --run 'curl ${argv.join(" ")}'`);
+        case "pactflow:curl":
+            const shouldReset = argv[1] === "--reset";
+            const displayHelp = argv[1] === "--help";
+            if (displayHelp) {
+                console.log("access your Pactflow broker from the CLI");
+                console.log("Required: $PACTFLOW_USERNAME");
+                console.log("Required: $PACTFLOW_PASSWORD");
+                console.log("Usage: pactflow:curl <curl opts> $PACT_BROKER_BASE_URL/<PATH>");
+                console.log("Example: pactflow:curl -v $PACT_BROKER_BASE_URL/settings/tokens");
+                console.log("Reset and refetch credentials");
+                console.log("Example: pactflow:curl --reset $PACT_BROKER_BASE_URL/settings/tokens");
+                break;
+            }
+            const setResetFlag = shouldReset ? "--reset " : "";
+            const curlCommand = shouldReset
+                ? argv.slice(2).join(" ")
+                : argv.slice(1).join(" ");
+            const curlArgs = [
+                "--header cookie",
+                "--cognitoclient 7t2s56arpg424kh7ou60apca8m",
+                "--userpool ap-southeast-2_x0L1olP0D",
+                `--username=${process.env.PACTFLOW_USERNAME}`,
+                `--password=${process.env.PACTFLOW_PASSWORD}`,
+                "--run ",
+            ].join(" ");
+            shelljs_1.default.exec(`node ${path.join(__dirname, "cognitocli/runner.js")} ${setResetFlag}${curlArgs}"curl ${curlCommand}"`);
             break;
         default:
             shelljs_1.default.echo("__________", "\n");
@@ -47,8 +71,8 @@ const displayExample = (programName, command) => {
     shelljs_1.default.echo("__________", "\n");
     shelljs_1.default.exec(command);
 };
-shelljs_1.default.echo("*** Heath Robinson ***", "\n");
-shelljs_1.default.echo("*** A collection of CLI tools ***", "\n");
+// shell.echo("*** Heath Robinson ***", "\n");
+// shell.echo("*** A collection of CLI tools ***", "\n");
 // shell.echo('*** TOOLS ***', '\n');
 // // Also serves as documentation
 const displayAllHelps = () => {
@@ -108,6 +132,7 @@ const displayAllCommands = () => {
     console.log("redocly");
     console.log("wsdl-to-ts");
     console.log("openapi-diff");
+    console.log("pactflow:curl");
     // console.log('newman-slack', 'yarn run newman-slack');
     // console.log('newman-wrapper', 'yarn run newman-wrapper');
     // console.log('postman2openapi', 'yarn run postman2openapi');

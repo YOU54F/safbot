@@ -27,22 +27,22 @@ class cognitocurl extends core_1.Command {
                 reset: flags.reset,
                 storage: flags.storage,
                 Username: flags.username,
-                Password: flags.password
+                Password: flags.password,
             };
             const { run: command, header, token } = flags;
             try {
                 const cognitoToken = yield (0, clibased_1.getTokenFromCLI)(cognitoSetup);
                 if (token) {
                     // user requested to see stored tokens instead of running curl command
-                    this.log('your token is', cognitoToken);
+                    this.log("your token is", cognitoToken);
                     process.exit(0);
                 }
                 else {
-                    this.log('Running curl command', command);
+                    // this.log("Running curl command", command);
                     if (!command)
                         console.log('please pass a command to run with --run "command"'),
                             process.exit(1);
-                    const signedCommand = `${command} -H '${header}: ${header === 'cookie' ? cognitoToken.cookie : cognitoToken.idToken}' -s`;
+                    const signedCommand = `${command} -H '${header}: ${header === "cookie" ? cognitoToken.cookie : cognitoToken.idToken}' -s`;
                     (0, child_process_1.exec)(signedCommand, (err, stdout, stderr) => {
                         this.log(stdout, stderr);
                         process.exit();
@@ -56,30 +56,30 @@ class cognitocurl extends core_1.Command {
         });
     }
 }
-cognitocurl.description = 'describe the command here';
+cognitocurl.description = "describe the command here";
 cognitocurl.flags = {
-    version: core_1.Flags.version({ char: 'v' }),
+    version: core_1.Flags.version({ char: "v" }),
     help: core_1.Flags.help(),
     userpool: core_1.Flags.string({
-        description: 'Congito User Pool ID',
-        default: 'ap-southeast-2_x0L1olP0D'
+        description: "Cognito User Pool ID",
+        default: "",
     }),
-    cognitoclient: core_1.Flags.string({ description: 'Cognito Client App ID' }),
-    reset: core_1.Flags.boolean({ description: 'Reset Cognito credentials' }),
+    cognitoclient: core_1.Flags.string({ description: "Cognito Client App ID" }),
+    reset: core_1.Flags.boolean({ description: "Reset Cognito credentials" }),
     storage: core_1.Flags.string({
-        description: "Persistent storage catalogue. Defaults to '/var/tmp'. "
+        description: "Persistent storage catalogue. Defaults to '/var/tmp'. ",
     }),
     header: core_1.Flags.string({
-        description: "Name HTTP header with cookie token. Defaults to 'cookie'"
+        description: "Name HTTP header with cookie token. Defaults to 'cookie'",
     }),
     run: core_1.Flags.string({
-        description: 'Curl ommand to be run and sign with -H cookie token'
+        description: "Curl command to be run and sign with -H cookie token",
     }),
     token: core_1.Flags.boolean({
-        description: 'Token to stdout instead of running a curl command'
+        description: "Token to stdout instead of running a curl command",
     }),
-    username: core_1.Flags.string({ description: 'Cognito User name' }),
-    password: core_1.Flags.string({ description: 'Cognito User password' })
+    username: core_1.Flags.string({ description: "Cognito User name" }),
+    password: core_1.Flags.string({ description: "Cognito User password" }),
 };
 cognitocurl.strict = false;
 module.exports = cognitocurl;

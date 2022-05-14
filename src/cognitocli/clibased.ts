@@ -1,11 +1,11 @@
 import {
   CognitoUser,
   AuthenticationDetails,
-  CognitoUserPool
-} from 'amazon-cognito-identity-js';
-import cli from 'cli-ux';
+  CognitoUserPool,
+} from "amazon-cognito-identity-js";
+import cli from "cli-ux";
 
-const storage = require('node-persist');
+const storage = require("node-persist");
 
 interface Tokens {
   idToken: string;
@@ -32,7 +32,7 @@ const TokenStorage = {
       `${poolData.UserPoolId}.${poolData.ClientId}`,
       JSON.stringify(tokens)
     );
-  }
+  },
 };
 
 const HandleNewPasswordRequired = async (
@@ -46,8 +46,8 @@ const HandleNewPasswordRequired = async (
   cookie: string;
 }> => {
   const newPassword = await cli.prompt(
-    'Password change required.\nNew Password',
-    { type: 'hide' }
+    "Password change required.\nNew Password",
+    { type: "hide" }
   );
   return new Promise<{
     accessToken: string;
@@ -72,14 +72,14 @@ const HandleNewPasswordRequired = async (
             refreshToken,
             accessToken,
             username,
-            cookie
+            cookie,
           }).then(() => {
             resolve({ accessToken, idToken, refreshToken, cookie });
           });
         },
         onFailure(err: Error) {
           reject(err);
-        }
+        },
       }
     );
   });
@@ -93,22 +93,22 @@ const GetTokenFromInput = async (
   refreshToken: string;
   cookie: string;
 }> => {
-  const username = poolData['Username']
-    ? poolData['Username']
-    : await cli.prompt('Username');
-  const password = poolData['Password']
-    ? poolData['Password']
-    : await cli.prompt('Password', { type: 'hide' });
+  const username = poolData["Username"]
+    ? poolData["Username"]
+    : await cli.prompt("Username");
+  const password = poolData["Password"]
+    ? poolData["Password"]
+    : await cli.prompt("Password", { type: "hide" });
   const authenticationData = {
     Username: username,
-    Password: password
+    Password: password,
   };
 
   const authenticationDetails = new AuthenticationDetails(authenticationData);
   const userPool = new CognitoUserPool(poolData);
   const userData = {
     Username: username,
-    Pool: userPool
+    Pool: userPool,
   };
   const cognitoUser = new CognitoUser(userData);
 
@@ -132,7 +132,7 @@ const GetTokenFromInput = async (
           refreshToken,
           accessToken,
           username,
-          cookie
+          cookie,
         }).then(() => {
           resolve({ idToken, accessToken, refreshToken, cookie });
         });
@@ -144,14 +144,14 @@ const GetTokenFromInput = async (
         HandleNewPasswordRequired(cognitoUser, username, poolData)
           .then(resolve)
           .catch(reject);
-      }
+      },
     });
   });
 };
 
 const RefreshToken = (token: string): any => ({
   token,
-  getToken: () => token
+  getToken: () => token,
 });
 
 const GetTokenFromPersistedCredentials = (data: string, poolData: any) =>
@@ -166,7 +166,7 @@ const GetTokenFromPersistedCredentials = (data: string, poolData: any) =>
     const userPool = new CognitoUserPool(poolData);
     const userData = {
       Username: tokens.username,
-      Pool: userPool
+      Pool: userPool,
     };
     const cognitoUser = new CognitoUser(userData);
 
@@ -175,7 +175,7 @@ const GetTokenFromPersistedCredentials = (data: string, poolData: any) =>
         RefreshToken(tokens.refreshToken),
         (err, result) => {
           if (err) {
-            reject('Error');
+            reject("Error");
           } else {
             const idToken: string = result.idToken.jwtToken;
             const refreshToken: string = result.refreshToken.token;
@@ -188,7 +188,7 @@ const GetTokenFromPersistedCredentials = (data: string, poolData: any) =>
               refreshToken,
               accessToken,
               username: tokens.username,
-              cookie
+              cookie,
             }).then(() => {
               resolve({ idToken, accessToken, refreshToken, cookie });
             });
@@ -210,10 +210,10 @@ const getTokenFromCLI = async (
 }> => {
   const poolData = data;
 
-  await storage.init({ dir: data.storage ? data.storage : '/var/tmp/we' });
+  await storage.init({ dir: data.storage ? data.storage : "/var/tmp/we" });
 
-  const scoobySnack = await TokenStorage.get(data);
-  console.log('is there a cookie in me jar?', !!scoobySnack === true);
+  // const scoobySnack = await TokenStorage.get(data);
+  // console.log('is there a cookie in me jar?', !!scoobySnack === true);
 
   return !data.reset
     ? await TokenStorage.get(data)
