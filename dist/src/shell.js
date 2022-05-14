@@ -67,12 +67,11 @@ const displayAllHelps = () => {
     displayHelp('curlx');
     displayHelp('postman2md');
     displayHelp('pmac');
-    displayHelp('pat');
     displayHelp('xml2js');
     displayHelp('js-yaml');
     displayHelp('postbox-split');
     displayHelp('postbox-merge');
-    displayHelp('redoc-cli');
+    displayHelp('redocly');
     displayHelp('wsdl-to-ts');
     displayHelp('openapi-diff');
 };
@@ -98,12 +97,11 @@ const displayAllCommands = () => {
     console.log('curlx');
     console.log('postman2md');
     console.log('pmac');
-    console.log('pat');
     console.log('xml2js');
     console.log('js-yaml');
     console.log('postbox-split');
     console.log('postbox-merge');
-    console.log('redoc-cli');
+    console.log('redocly');
     console.log('wsdl-to-ts');
     console.log('openapi-diff');
     // console.log('newman-slack', 'yarn run newman-slack');
