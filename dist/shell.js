@@ -27,6 +27,8 @@ const runProgram = (argv) => {
         case "pactflow:curl":
             const shouldReset = argv[1] === "--reset";
             const displayHelp = argv[1] === "--help";
+            const getToken = argv[1] === "--token" || argv[2] === "--token";
+            const downloadTemplate = argv[1] === "--generate-project" || argv[2] === "--generate-project";
             if (displayHelp) {
                 console.log("access your Pactflow broker from the CLI");
                 console.log("Required: $PACTFLOW_USERNAME");
@@ -37,11 +39,12 @@ const runProgram = (argv) => {
                 console.log("Example: pactflow:curl --reset $PACT_BROKER_BASE_URL/settings/tokens");
                 break;
             }
-            const setResetFlag = shouldReset ? "--reset " : "";
-            const curlCommand = shouldReset
+            const setResetFlag = shouldReset ? "--reset" : " ";
+            const curlCommand = shouldReset || getToken || downloadTemplate
                 ? argv.slice(2).join(" ")
                 : argv.slice(1).join(" ");
             const curlArgs = [
+                setResetFlag,
                 "--header cookie",
                 "--cognitoclient 7t2s56arpg424kh7ou60apca8m",
                 "--userpool ap-southeast-2_x0L1olP0D",
@@ -49,7 +52,59 @@ const runProgram = (argv) => {
                 `--password=${process.env.PACTFLOW_PASSWORD}`,
                 "--run ",
             ].join(" ");
-            shelljs_1.default.exec(`node ${path.join(__dirname, "cognitocli/runner.js")} ${setResetFlag}${curlArgs}"curl ${curlCommand}"`);
+            const cognitoRunnerPath = path.join(__dirname, "cognitocli/runner.js");
+            const cognitoRunCommand = `node ${cognitoRunnerPath} ${curlArgs}`;
+            const cognitoCurlCommand = `"curl ${curlCommand}"`;
+            const cognitoDefaultRunCommand = [
+                cognitoRunCommand,
+                cognitoCurlCommand,
+            ].join(" ");
+            const tokensUrl = process.env.PACT_BROKER_BASE_URL + "/settings/tokens";
+            const generateProjectUrl = process.env.PACT_BROKER_BASE_URL + "/generate-project.zip";
+            const tokenRunCommand = [
+                cognitoRunCommand,
+                `"curl ${curlCommand} ${tokensUrl}"`,
+            ].join(" ");
+            if (getToken) {
+                shelljs_1.default.exec(tokenRunCommand);
+                break;
+            }
+            if (downloadTemplate) {
+                const allowableProjects = [
+                    "javascript-node-consumer-mocha",
+                    "javascript-node-consumer-jest",
+                    "java-gradle-consumer-junit",
+                    "java-gradle-consumer-junit5",
+                    "javascript-node-provider-mocha",
+                    "javascript-node-provider-jest",
+                    "java-gradle-provider-spring_junit",
+                    "java-gradle-provider-spring_junit5",
+                ];
+                if (!allowableProjects.includes(curlCommand)) {
+                    console.log("provide one of the following options");
+                    console.log(allowableProjects);
+                    break;
+                }
+                const downloadTemplateArgs = [
+                    "--get",
+                    `--data-urlencode consumer=${process.env.PACTFLOW_CONSUMER}`,
+                    `--data-urlencode provider=${process.env.PACTFLOW_PROVIDER}`,
+                    `--data-urlencode template=${curlCommand}`,
+                    `--data-urlencode token=${"env-var"}`,
+                    `--data-urlencode createConsumer=false`,
+                    `--data-urlencode createProvider=false`,
+                ].join(" ");
+                const downloadTemplateCommand = [
+                    cognitoRunCommand,
+                    `"curl ${curlCommand} ${downloadTemplateArgs} ${generateProjectUrl}"`,
+                ].join(" ");
+                shelljs_1.default.exec(downloadTemplateCommand);
+                break;
+            }
+            else {
+                shelljs_1.default.exec(cognitoDefaultRunCommand);
+                break;
+            }
             break;
         default:
             shelljs_1.default.echo("__________", "\n");

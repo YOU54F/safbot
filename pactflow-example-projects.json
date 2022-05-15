@@ -1,0 +1,52 @@
+{
+  "exampleTemplates": [
+    {
+      "type": "consumer",
+      "category": "javascript-node-consumer-mocha",
+      "path": "javascript/node/consumer/mocha",
+      "description": "Node - Consumer with Mocha"
+    },
+    {
+      "type": "consumer",
+      "category": "javascript-node-consumer-jest",
+      "path": "javascript/node/consumer/jest",
+      "description": "Node - Consumer with Jest"
+    },
+    {
+      "type": "consumer",
+      "category": "java-gradle-consumer-junit",
+      "path": "java/gradle/consumer/junit",
+      "description": "Gradle - Consumer with JUnit 4"
+    },
+    {
+      "type": "consumer",
+      "category": "java-gradle-consumer-junit5",
+      "path": "java/gradle/consumer/junit5",
+      "description": "Gradle - Consumer with JUnit 5"
+    },
+    {
+      "type": "provider",
+      "category": "javascript-node-provider-mocha",
+      "path": "javascript/node/provider/mocha",
+      "description": "Node - Provider with Mocha and Express"
+    },
+    {
+      "type": "provider",
+      "category": "javascript-node-provider-jest",
+      "path": "javascript/node/provider/jest",
+      "description": "Node - Provider with Jest and Express"
+    },
+    {
+      "type": "provider",
+      "category": "java-gradle-provider-spring_junit",
+      "path": "java/gradle/provider/spring_junit",
+      "description": "Java - Provider with JUnit 4 and Springboot"
+    },
+    {
+      "type": "provider",
+      "category": "java-gradle-provider-spring_junit5",
+      "path": "java/gradle/provider/spring_junit5",
+      "description": "Java - Provider with JUnit 5 and Springboot"
+    }
+  ]
+}
