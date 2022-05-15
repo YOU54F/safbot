@@ -106,6 +106,7 @@ const runProgram = (argv: string[]) => {
         const downloadTemplateCommand = [
           cognitoRunCommand,
           `"curl ${curlCommand} ${downloadTemplateArgs} ${generateProjectUrl}"`,
+          `> ${curlCommand}.zip`,
         ].join(" ");
 
         shell.exec(downloadTemplateCommand);
