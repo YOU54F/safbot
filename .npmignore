@@ -7,3 +7,6 @@ tsconfig.json
 cypress
 foo.sh
 *.zip
+.env
+README2.md
+README.prism.md

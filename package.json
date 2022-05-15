@@ -1,6 +1,6 @@
 {
   "name": "safbot",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "various cli tools I find useful, all rolled up in one",
   "main": "index.js",
   "bin": {
