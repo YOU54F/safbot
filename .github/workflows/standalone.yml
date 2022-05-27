@@ -1,34 +1,25 @@
-name: stdlone
+name: test standalone
 
 on:
   workflow_dispatch:
 
 jobs:
-  # build-and-test-osx:
-  #   runs-on: macos-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "16"
-  #     - run: yarn install
-  #     - run: yarn build
-  #     - run: node ./dist/shell.js
 
-  # build-and-test-ubuntu:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "16"
-  #     - run: yarn install
-  #     - run: yarn build
-  #     - run: node ./dist/shell.js
-
-  build-and-test-windows:
+  build-and-test-windows-latest:
     runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: |
+          curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.88.89/pact-1.88.89-win32.zip
+          unzip pact-1.88.89-win32.zip
+          cd pact
+          ./bin/pact-mock-service --help start
+          ./bin/pact-provider-verifier --help verify
+  build-and-test-windows-2019:        
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
