@@ -1,7 +1,7 @@
-name: Build and test
+name: stdlone
 
 on:
-  workflow_dispatch: []
+  workflow_dispatch:
 
 jobs:
   # build-and-test-osx:
