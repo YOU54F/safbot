@@ -1,0 +1,42 @@
+name: Build and test
+
+on:
+  workflow_dispatch: []
+
+jobs:
+  # build-and-test-osx:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "16"
+  #     - run: yarn install
+  #     - run: yarn build
+  #     - run: node ./dist/shell.js
+
+  # build-and-test-ubuntu:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "16"
+  #     - run: yarn install
+  #     - run: yarn build
+  #     - run: node ./dist/shell.js
+
+  build-and-test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: |
+      curl -LO https://github.com/pact-foundation/pact-ruby-standalone/releases/download/v1.88.89/pact-1.88.89-win32.zip
+      unzip pact-1.88.89-win32.zip
+      cd pact-1.88.89-win32/pact/bin
+      ./pact-mock-service --help start
+      ./pact-provider-verifier --help verify
