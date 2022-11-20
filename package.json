@@ -70,7 +70,7 @@
     "curlx": "^0.0.12",
     "cy-openapi": "^0.0.7",
     "json-schema-ref-parser": "^9.0.9",
-    "newman-collection": "^1.5.1",
+    "newman-collection": "^2.0.0",
     "newman-reporter-htmlextra": "^1.22.8",
     "newman-wrapper": "^1.0.10",
     "node-persist": "^3.1.0",
