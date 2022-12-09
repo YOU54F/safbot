@@ -1523,15 +1523,15 @@ async@2.5.0:
   dependencies:
     lodash "^4.14.0"
 
-async@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.npmjs.org/async/-/async-3.2.1.tgz#d3274ec66d107a47476a4c49136aacdb00665fc8"
-  integrity sha512-XdD5lRO/87udXCMC9meWdYiR+Nq6ZjUfXidViUZGu2F1MO4T3XwZ1et0hb2++BgLfhyJwy44BGB/yx80ABx8hg==
-
 async@3.2.3, async@^3.2.3:
   version "3.2.3"
   resolved "https://registry.npmjs.org/async/-/async-3.2.3.tgz#ac53dafd3f4720ee9e8a160628f18ea91df196c9"
   integrity sha512-spZRyzKL5l5BZQrr/6m/SqFdBN0q3OCI0f9rjfBzCMBIP4p75P620rR3gTmaksNOhmzgdxcaxdNfMy6anrbM0g==
+
+async@3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/async/-/async-3.2.4.tgz#2d22e00f8cddeb5fde5dd33522b56d1cf569a81c"
+  integrity sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==
 
 async@^2.6.2:
   version "2.6.4"
@@ -5948,6 +5948,18 @@ oas-resolver-browser@2.5.2:
     yaml "^1.10.0"
     yargs "^15.3.1"
 
+oas-resolver-browser@2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/oas-resolver-browser/-/oas-resolver-browser-2.5.6.tgz#1974db66d594fa8c67d3aa866b46b9e2156a8b55"
+  integrity sha512-Jw5elT/kwUJrnGaVuRWe1D7hmnYWB8rfDDjBnpQ+RYY/dzAewGXeTexXzt4fGEo6PUE4eqKqPWF79MZxxvMppA==
+  dependencies:
+    node-fetch-h2 "^2.3.0"
+    oas-kit-common "^1.0.8"
+    path-browserify "^1.0.1"
+    reftools "^1.1.9"
+    yaml "^1.10.0"
+    yargs "^17.0.1"
+
 oas-resolver@^2.5.6:
   version "2.5.6"
   resolved "https://registry.npmjs.org/oas-resolver/-/oas-resolver-2.5.6.tgz#10430569cb7daca56115c915e611ebc5515c561b"
@@ -6143,21 +6155,23 @@ openapi-to-postmanv2@^2.13.0, openapi-to-postmanv2@^2.14.1:
     postman-collection "4.0.0"
     yaml "1.10.2"
 
-openapi-to-postmanv2@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/openapi-to-postmanv2/-/openapi-to-postmanv2-3.1.0.tgz#8fca06f7e30160f7daf60d37455e0fbce17b19b7"
-  integrity sha512-qZWzqInuIbbeN43or4puYogIMrd+XgnS/3GhCSY18/VQkZVdMUJVFLiW3dqjHQ/9akw9cTTO6rrNMTzunLI1Og==
+openapi-to-postmanv2@^4.0.0:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/openapi-to-postmanv2/-/openapi-to-postmanv2-4.4.1.tgz#0e1e9340beca35fd1f1be9561bcfaf198de7d280"
+  integrity sha512-d61QkXtH0qPJbZL153aaHlILFoUbSn1Qb4dmJrbV3hG4k/A4m5nrkaGJH2jF9wp2eZpT54+mfWngKSRrE+gplw==
   dependencies:
     ajv "8.1.0"
     ajv-formats "2.1.1"
-    async "3.2.1"
+    async "3.2.4"
     commander "2.20.3"
     js-yaml "3.14.1"
     json-schema-merge-allof "0.8.1"
     lodash "4.17.21"
-    oas-resolver-browser "2.5.2"
+    oas-resolver-browser "2.5.6"
     path-browserify "1.0.1"
-    postman-collection "4.0.0"
+    postman-collection "4.1.4"
+    swagger2openapi "7.0.8"
+    traverse "0.6.6"
     yaml "1.10.2"
 
 openapi-types@9.1.0:
@@ -6759,6 +6773,23 @@ postman-collection@4.1.1:
     mime-types "2.1.34"
     postman-url-encoder "3.0.5"
     semver "7.3.5"
+    uuid "8.3.2"
+
+postman-collection@4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/postman-collection/-/postman-collection-4.1.4.tgz#f04b64fec6d8cdd417f1e8d89185a44e4ee0b84c"
+  integrity sha512-3b/ZUrCIXRG3Eh3P6usiBYSZbCHTwMsJJ1l2RID/rdv/EC8YyhVS5PKGKdpYrRB69F/fETD9lOAuhvCwj0h71w==
+  dependencies:
+    "@faker-js/faker" "5.5.3"
+    file-type "3.9.0"
+    http-reasons "0.1.0"
+    iconv-lite "0.6.3"
+    liquid-json "0.3.1"
+    lodash "4.17.21"
+    mime-format "2.0.1"
+    mime-types "2.1.35"
+    postman-url-encoder "3.0.5"
+    semver "7.3.7"
     uuid "8.3.2"
 
 postman-collection@4.1.6, postman-collection@^4:
@@ -7464,17 +7495,17 @@ semver@7.3.5:
   dependencies:
     lru-cache "^6.0.0"
 
+semver@7.3.7, semver@^7.2.1, semver@^7.3.2, semver@^7.3.5:
+  version "7.3.7"
+  resolved "https://registry.npmjs.org/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
+  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
+  dependencies:
+    lru-cache "^6.0.0"
+
 semver@7.3.8:
   version "7.3.8"
   resolved "https://registry.npmjs.org/semver/-/semver-7.3.8.tgz#07a78feafb3f7b32347d725e33de7e2a2df67798"
   integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
-  dependencies:
-    lru-cache "^6.0.0"
-
-semver@^7.2.1, semver@^7.3.2, semver@^7.3.5:
-  version "7.3.7"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
-  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -8189,9 +8220,9 @@ swagger2-postman2-parser@^1.0.5:
     postman-collection "^3.5.0"
     uuid "^3.3.2"
 
-swagger2openapi@^7.0.8:
+swagger2openapi@7.0.8, swagger2openapi@^7.0.8:
   version "7.0.8"
-  resolved "https://registry.npmjs.org/swagger2openapi/-/swagger2openapi-7.0.8.tgz#12c88d5de776cb1cbba758994930f40ad0afac59"
+  resolved "https://registry.yarnpkg.com/swagger2openapi/-/swagger2openapi-7.0.8.tgz#12c88d5de776cb1cbba758994930f40ad0afac59"
   integrity sha512-upi/0ZGkYgEcLeGieoz8gT74oWHA0E7JivX7aN9mAf+Tc7BQoRBvnIGHoPDw+f9TXTW4s6kGYCZJtauP6OYp7g==
   dependencies:
     call-me-maybe "^1.0.1"
@@ -8330,7 +8361,7 @@ tr46@~0.0.3:
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-traverse@^0.6.6:
+traverse@0.6.6, traverse@^0.6.6:
   version "0.6.6"
   resolved "https://registry.npmjs.org/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
   integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
