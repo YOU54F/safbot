@@ -6,7 +6,13 @@
   "bin": {
     "saf": "./dist/shell.js",
     "safbot": "./dist/shell.js"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/you54f/safbot.git"
   },
+  "author": "Yousaf Nabi",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "npm run prebuild && tsc --skipLibCheck",
@@ -52,8 +58,6 @@
     "openapi-diff": "openapi-diff",
     "pact-json-schema": "ts-node ./src/pactSchemas.ts"
   },
-  "author": "Yousaf Nabi",
-  "license": "ISC",
   "dependencies": {
     "@apideck/portman": "^1.16.1",
     "@apideck/postman-to-k6": "^1.8.3",
