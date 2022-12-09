@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@oclif/core");
 const child_process_1 = require("child_process");
 const cross_fetch_1 = __importDefault(require("cross-fetch"));
-const clibased_1 = require("./clibased");
+const cognito_1 = require("./cognito");
 global.fetch = cross_fetch_1.default;
 class cognitocurl extends core_1.Command {
     run() {
@@ -31,7 +31,7 @@ class cognitocurl extends core_1.Command {
             };
             const { run: command, header, token } = flags;
             try {
-                const cognitoToken = yield (0, clibased_1.getTokenFromCLI)(cognitoSetup);
+                const cognitoToken = yield (0, cognito_1.getTokenFromCLI)(cognitoSetup);
                 if (token) {
                     // user requested to see stored tokens instead of running curl command
                     this.log("your token is", cognitoToken);

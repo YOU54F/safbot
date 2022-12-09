@@ -2,7 +2,7 @@ import { Command, Flags } from "@oclif/core";
 
 import { exec } from "child_process";
 import fetch from "cross-fetch";
-import { getTokenFromCLI } from "./clibased";
+import { getTokenFromCLI } from "./cognito";
 
 declare var global: any;
 global.fetch = fetch;

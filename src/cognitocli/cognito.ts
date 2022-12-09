@@ -119,7 +119,7 @@ const GetTokenFromInput = async (
     cookie: string;
   }>((resolve, reject) => {
     cognitoUser.authenticateUser(authenticationDetails, {
-      onSuccess: function(result: any) {
+      onSuccess: function (result: any) {
         const idToken: string = result.getIdToken().getJwtToken();
         const refreshToken: string = result.getRefreshToken().getToken();
         const accessToken: string = result.getAccessToken().getJwtToken();
@@ -137,10 +137,10 @@ const GetTokenFromInput = async (
           resolve({ idToken, accessToken, refreshToken, cookie });
         });
       },
-      onFailure: function(err) {
+      onFailure: function (err) {
         reject(err);
       },
-      newPasswordRequired: function() {
+      newPasswordRequired: function () {
         HandleNewPasswordRequired(cognitoUser, username, poolData)
           .then(resolve)
           .catch(reject);
@@ -212,10 +212,7 @@ const getTokenFromCLI = async (
 
   await storage.init({ dir: data.storage ? data.storage : "/var/tmp/we" });
 
-  // const scoobySnack = await TokenStorage.get(data);
-  // console.log('is there a cookie in me jar?', !!scoobySnack === true);
-
-  return !data.reset
+  return !data.login
     ? await TokenStorage.get(data)
         .then((data: any) => GetTokenFromPersistedCredentials(data, poolData))
         .catch(async () => GetTokenFromInput(data))

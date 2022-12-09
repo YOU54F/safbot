@@ -143,8 +143,6 @@ const GetTokenFromPersistedCredentials = (data, poolData) => new Promise((resolv
 const getTokenFromCLI = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const poolData = data;
     yield storage.init({ dir: data.storage ? data.storage : "/var/tmp/we" });
-    // const scoobySnack = await TokenStorage.get(data);
-    // console.log('is there a cookie in me jar?', !!scoobySnack === true);
     return !data.reset
         ? yield TokenStorage.get(data)
             .then((data) => GetTokenFromPersistedCredentials(data, poolData))
