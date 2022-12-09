@@ -215,6 +215,11 @@
   resolved "https://registry.npmjs.org/@exodus/schemasafe/-/schemasafe-1.0.0-rc.6.tgz#7985f681564cff4ffaebb5896eb4be20af3aae7a"
   integrity sha512-dDnQizD94EdBwEj/fh3zPRa/HWCS9O5au2PuHhZBbuM3xWHxuaKzPBOEWze7Nn0xW68MIpZ7Xdyn1CoCpjKCuQ==
 
+"@faker-js/faker@5.5.3":
+  version "5.5.3"
+  resolved "https://registry.npmjs.org/@faker-js/faker/-/faker-5.5.3.tgz#18e3af6b8eae7984072bbeb0c0858474d7c4cefe"
+  integrity sha512-R11tGE6yIFwqpaIqcfkcg7AICXzFg14+5h5v0TfF/9+RMDL6jhzCy/pxHVOfbALGdtVYdt6JdR21tuxEgl34dw==
+
 "@faker-js/faker@6.0.0":
   version "6.0.0"
   resolved "https://registry.npmjs.org/@faker-js/faker/-/faker-6.0.0.tgz#b613ebf5f5ebb2ab987afb567d8b7fe860199c13"
@@ -1099,15 +1104,15 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-17.0.25.tgz#527051f3c2f77aa52e5dc74e45a3da5fb2301448"
   integrity sha512-wANk6fBrUwdpY4isjWrKTufkrXdu1D2YHCot2fD/DfWxF5sMrVSA+KN7ydckvaTCh0HiqX9IVl0L5/ZoXg5M7w==
 
-"@types/node@^13.7.1":
-  version "13.13.52"
-  resolved "https://registry.npmjs.org/@types/node/-/node-13.13.52.tgz#03c13be70b9031baaed79481c0c0cfb0045e53f7"
-  integrity sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==
-
 "@types/node@^14.11.8":
   version "14.18.13"
   resolved "https://registry.npmjs.org/@types/node/-/node-14.18.13.tgz#6ad4d9db59e6b3faf98dcfe4ca9d2aec84443277"
   integrity sha512-Z6/KzgyWOga3pJNS42A+zayjhPbf2zM3hegRQaOPnLOzEi86VV++6FLDWgR1LGrVCRufP/ph2daa3tEa5br1zA==
+
+"@types/node@^16":
+  version "16.18.7"
+  resolved "https://registry.npmjs.org/@types/node/-/node-16.18.7.tgz#9e34404dba546a6f0851439ebba142680ae56fe0"
+  integrity sha512-SghuoXv8ghvkrKjTyvhRTeNzivPzGQ8pe09PPGdyqsExiKvBYV/6E3imvjsaJuW8ca61qQN2+SoSzyEHS9r2LA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -3657,6 +3662,11 @@ flatted@3.1.1:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
 
+flatted@3.2.6:
+  version "3.2.6"
+  resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.6.tgz#022e9218c637f9f3fc9c35ab9c9193f05add60b2"
+  integrity sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==
+
 flatted@^3.1.0:
   version "3.2.5"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
@@ -5749,13 +5759,14 @@ netmask@^2.0.1:
   resolved "https://registry.npmjs.org/netmask/-/netmask-2.0.2.tgz#8b01a07644065d536383835823bc52004ebac5e7"
   integrity sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==
 
-newman-collection@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/newman-collection/-/newman-collection-1.5.1.tgz#308c624e6450e264f507c17ccd8e0db1d425c235"
-  integrity sha512-w9f6Si6bNSa2SHHiwMvBwoii0B8t40lVxhYEuvZpzjL5wdzr5nwyNaeb0DjOGopzcqtjbOqpgmuW40Mh4GDsVA==
+newman-collection@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/newman-collection/-/newman-collection-2.0.6.tgz#a59fe4c484230f27a7dcb3b2c0bc81cf4a9452fb"
+  integrity sha512-RcNted0HCYsa9uouKf5vfDxEJEu14zdsgyvrYaUYGVhnzpinRUviDAxzmWxZCx4tFzVvERf5gC/uVG2E0u6KTA==
   dependencies:
-    "@types/node" "^13.7.1"
-    postman-collection "^3.5.5"
+    "@types/node" "^16"
+    postman-collection "^4"
+    postman-sandbox "^4.0.8"
 
 newman-reporter-htmlextra@^1.22.3, newman-reporter-htmlextra@^1.22.8:
   version "1.22.8"
@@ -6750,7 +6761,24 @@ postman-collection@4.1.1:
     semver "7.3.5"
     uuid "8.3.2"
 
-postman-collection@^3.5.0, postman-collection@^3.5.5, postman-collection@^3.6.0:
+postman-collection@4.1.6, postman-collection@^4:
+  version "4.1.6"
+  resolved "https://registry.npmjs.org/postman-collection/-/postman-collection-4.1.6.tgz#91746b683f9cc0ef8ddfd961dde66c326a7c48bf"
+  integrity sha512-9A2PFDS6KDasUTpNRjvbCUkWmVrsfVALsqy1xdnWxwV81jpBS/dvTeoGEM//M12EH9qa7VxZ5O2KrSC2oItEOg==
+  dependencies:
+    "@faker-js/faker" "5.5.3"
+    file-type "3.9.0"
+    http-reasons "0.1.0"
+    iconv-lite "0.6.3"
+    liquid-json "0.3.1"
+    lodash "4.17.21"
+    mime-format "2.0.1"
+    mime-types "2.1.35"
+    postman-url-encoder "3.0.5"
+    semver "7.3.8"
+    uuid "8.3.2"
+
+postman-collection@^3.5.0, postman-collection@^3.6.0:
   version "3.6.11"
   resolved "https://registry.npmjs.org/postman-collection/-/postman-collection-3.6.11.tgz#b7932aa98d4334064d4601a042b66a5ebcdd8b58"
   integrity sha512-22oIsOXwigdEGQJuTgS44964hj0/gN20E6/aiDoO469WiqqOk5JEEVQpW8zCDjsb9vynyk384JqE9zRyvfrH5A==
@@ -6845,6 +6873,16 @@ postman-sandbox@4.0.6:
     lodash "4.17.21"
     teleport-javascript "1.0.0"
     uvm "2.0.2"
+
+postman-sandbox@^4.0.8:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/postman-sandbox/-/postman-sandbox-4.2.0.tgz#771983ecc6af634b6fa0ca4a6e0abc23ec6e6432"
+  integrity sha512-i3Pg+yFqEUzDmFwpqfVD2IpPbIZgQRA2AugEsW4bilQzhfThKYYtNgBeLyhOVUAj10WSzBtiDOr4u9oAkROSdQ==
+  dependencies:
+    lodash "4.17.21"
+    postman-collection "4.1.6"
+    teleport-javascript "1.0.0"
+    uvm "2.1.1"
 
 postman-to-openapi@^2.2.1:
   version "2.2.1"
@@ -7423,6 +7461,13 @@ semver@7.3.5:
   version "7.3.5"
   resolved "https://registry.npmjs.org/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
+  dependencies:
+    lru-cache "^6.0.0"
+
+semver@7.3.8:
+  version "7.3.8"
+  resolved "https://registry.npmjs.org/semver/-/semver-7.3.8.tgz#07a78feafb3f7b32347d725e33de7e2a2df67798"
+  integrity sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -8574,6 +8619,13 @@ uvm@2.0.2:
   integrity sha512-Ra+aPiS5GXAbwXmyNExqdS42sTqmmx4XWEDF8uJlsTfOkKf9Rd9xNgav1Yckv4HfVEZg4iOFODWHFYuJ+9Fzfg==
   dependencies:
     flatted "3.1.1"
+
+uvm@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/uvm/-/uvm-2.1.1.tgz#4287db012666215700130a135b25771cae8083e1"
+  integrity sha512-BZ5w8adTpNNr+zczOBRpaX/hH8UPKAf7fmCnidrcsqt3bn8KT9bDIfuS7hgRU9RXgiN01su2pwysBONY6w8W5w==
+  dependencies:
+    flatted "3.2.6"
 
 v8-compile-cache-lib@^3.0.0:
   version "3.0.1"
