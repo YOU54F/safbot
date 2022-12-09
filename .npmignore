@@ -5,3 +5,8 @@ tsconfig.json
 .github
 *.log
 cypress
+foo.sh
+*.zip
+.env
+README2.md
+README.prism.md
