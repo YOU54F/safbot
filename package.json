@@ -85,7 +85,7 @@
     "pmac": "^1.4.0",
     "pmpact": "^0.3.14",
     "postman-collection-transformer": "^4.1.6",
-    "postman-to-openapi": "^2.2.1",
+    "postman-to-openapi": "^3.0.0",
     "postman2md": "^0.2.4",
     "postman2openapi": "^1.0.0-beta",
     "@redocly/cli": "^1.0.0-beta.96",
